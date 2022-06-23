@@ -16,6 +16,10 @@ header {
   margin: 8%;
 }
 
+h1 {
+  text-align: center;
+}
+
 section {
   border: 1px solid black;
   border-radius: 5vmax;
@@ -28,7 +32,7 @@ section {
 
 section h2 {
   margin: 3%;
-
+  text-align: center;
 }
 
 section button {

@@ -1,41 +1,39 @@
-// Declare variables for player and computer scores and ties
-// Create an array with options rock, paper, scissors
-// Use random number generator for the computer's choice of r, p, s
-// Use conditionals to determine who wins
-//    if player's choice === computer's choice, we have a tie
-//    if player selects rock and computer selects paper, then computer wins
-//    else if player selects rock and computer selects scissors, then player wins
-//    else if player selects paper and computer selects scissors, then player wins
-//    etc...
-// After each round, ask if the player wants to do another round
-// Keep track of player wins, losses and ties
+// script.js
+// By Sean Oh and Ada Chika
 
-
+// Event listener for start button press
 var startButton = document.querySelector("#start-game");
 startButton.addEventListener("click", playGame);
 
+// Score counter and options array
 const options = ["R", "P", "S"];
 var numWins = 0;
 var numLosses = 0;
 var numTies = 0;
 
+// Main game logic
 function playGame() {
 	startButton.innerHTML = "Continue";
 
   var userChoice = promptUser();
   if(!userChoice) return;
 
+  // Generate a random choice out of the options for the computer
   var computerChoice = options[Math.floor(Math.random() * 3)];
   console.log(computerChoice);
   alert(`Computer chose ${computerChoice}`);
+
   displayWinner(userChoice, computerChoice);
   displayScore();
+
+  // Confirm to run another round
   if(confirm("Play Again?")){
   	playGame();
   }
 
 }
 
+// Prompt for user choice and ensure it is valid
 function promptUser() {
   var userChoice = prompt("Enter R, P, or S to select your choice.");
   userChoice = userChoice.toUpperCase();
@@ -50,6 +48,7 @@ function promptUser() {
   return userChoice;
 }
 
+// Display the winner and increment score based on rock paper scissor logic
 function displayWinner(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
     alert("You tie!");
@@ -69,6 +68,7 @@ function displayWinner(userChoice, computerChoice) {
   }
 }
 
+// Display total scores at end of round
 function displayScore() {
 	alert("Current Score:\nWins: " + numWins +
   			"\nLosses: " + numLosses + 
