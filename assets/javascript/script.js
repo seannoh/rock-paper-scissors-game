@@ -14,7 +14,12 @@
 var startButton = document.querySelector("#start-game");
 startButton.addEventListener("click",playGame);
 
-function playGame() {
+const options = ["R","P","S"];
+var numWins = 0;
+var numLosses = 0;
+var numTies = 0;
 
+function playGame() {
+  var userChoice = prompt("Enter R, P, or S to select your choice.");
 
 }
